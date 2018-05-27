@@ -1,4 +1,4 @@
-package xyz.thanhhaidev.cooking.auth;
+package xyz.thanhhaidev.cooking.activities.auth;
 
 import com.google.gson.annotations.SerializedName;
 

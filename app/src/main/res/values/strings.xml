@@ -9,4 +9,7 @@
     <string name="logout">Looks like you are already logged in. To logout, click on the logout button.</string>
     <string name="data_description_detailed">The following articles are fetched from the **articles** table. Use the Hasura API Console (run $ hasura api-console on your terminal) to explore the DATA APIs. The code for this activity can be found in the **ArticleListActivity**.</string>
     <string name="filestore_description_detailed">Click on the upload button to upload an image using the Hasura filestore APIs.  You will be asked to choose an image to be uploaded. The code for this activity can be found in **FilestoreActivity**</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

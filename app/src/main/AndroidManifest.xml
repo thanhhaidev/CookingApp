@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="xyz.thanhhaidev.cooking.LauncherActivity">
+        <activity android:name=".activities.auth.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="xyz.thanhhaidev.cooking.auth.AuthActivity" />
-        <activity android:name="xyz.thanhhaidev.cooking.filestore.FilestoreActivity" />
-        <activity android:name="xyz.thanhhaidev.cooking.websockets.WebsocketActivity" />
-        <activity android:name="xyz.thanhhaidev.cooking.data.DataActivity"></activity>
+        <activity android:name=".auth.AuthActivity" />
+        <activity android:name=".Slide_Navigation_Main" />
+        <activity android:name=".activities.auth.SignUpActivity" />
+        <activity android:name=".activities.auth.ForgotPasswordActivity"></activity>
     </application>
 
 </manifest>
