@@ -1,4 +1,4 @@
-package xyz.thanhhaidev.cooking;
+package xyz.thanhhaidev.cooking.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -19,33 +19,27 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import xyz.thanhhaidev.cooking.Hasura;
+import xyz.thanhhaidev.cooking.R;
+import xyz.thanhhaidev.cooking.ResideMenu;
+import xyz.thanhhaidev.cooking.ResideMenuItem;
+import xyz.thanhhaidev.cooking.Slide_Navigation_Main;
 import xyz.thanhhaidev.cooking.activities.auth.LauncherActivity;
-import xyz.thanhhaidev.cooking.fragments.HomeFragment;
-import xyz.thanhhaidev.cooking.fragments.Slide_listFood;
 
-public class Slide_Navigation_Main extends FragmentActivity implements View.OnClickListener {
+/**
+ * Created by T164038-MaiTuongLuan on 5/30/2018.
+ */
 
+public class Slide_listFood extends FragmentActivity {
     private ResideMenu resideMenu;
     private Slide_Navigation_Main mContext;
     private ResideMenuItem itemHome;
     private ResideMenuItem listFood;
     private ProgressDialog progressDialog;
-
-    /**
-     * Called when the activity is first created.
-     */
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.slide_navigation_main);
-        mContext = this;
-
-        progressDialog = new ProgressDialog(this);
-
+        setContentView(R.layout.slide_listfood);
         setUpMenu();
-        if (savedInstanceState == null) {
-            changeFragment(new HomeFragment());
-        }
     }
 
     private void setUpMenu() {
@@ -56,29 +50,27 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
         resideMenu.setBackground(R.drawable.menu_background);
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
-        //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip. 
+        //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
         resideMenu.setScaleValue(1.0f);
 
         // create menu items;
         itemHome = new ResideMenuItem(this, R.drawable.home, "Trang chủ");
 
-        itemHome.setOnClickListener(this);
+        itemHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Slide_listFood.this,Slide_Navigation_Main.class));
+            }
+        });
 
         resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
 //        hien thi danh sach mon an
         listFood = new ResideMenuItem(this, R.drawable.add, "Danh sách món ăn");
 
-//        listFood.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Slide_Navigation_Main.this, Slide_listFood.class);
-//                startActivity(intent);
-//            }
-//        });
         listFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Slide_Navigation_Main.this,Slide_listFood.class));
+                startActivity(new Intent(Slide_listFood.this,Slide_listFood.class));
             }
         });
 
@@ -101,15 +93,12 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
         });
     }
 
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        return resideMenu.dispatchTouchEvent(ev);
-//    }
-
-    @Override
     public void onClick(View view) {
 
-        if (view == itemHome || view == listFood) {
+        if (view == itemHome) {
+            changeFragment(new HomeFragment());
+        }
+        if (view == listFood) {
             changeFragment(new HomeFragment());
         }
         resideMenu.closeMenu();
