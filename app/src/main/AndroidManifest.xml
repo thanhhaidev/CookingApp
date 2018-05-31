@@ -18,10 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".auth.AuthActivity" />
         <activity android:name=".Slide_Navigation_Main" />
         <activity android:name=".activities.auth.SignUpActivity" />
-        <activity android:name=".activities.auth.ForgotPasswordActivity"></activity>
+        <activity android:name=".activities.auth.ForgotPasswordActivity" />
+        <activity android:name=".activities.home.FoodActivity"></activity>
     </application>
 
 </manifest>
