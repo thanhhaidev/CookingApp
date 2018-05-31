@@ -118,7 +118,7 @@ public class HomeFragment extends Fragment {
                     .post(body)
                     .addHeader("Authorization", "Bearer " + Hasura.getSessionToken(getContext()))
                     .build();
-            showProgressDialog("Fetching user details");
+            showProgressDialog("Fetching food success");
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(okhttp3.Call call, IOException e) {

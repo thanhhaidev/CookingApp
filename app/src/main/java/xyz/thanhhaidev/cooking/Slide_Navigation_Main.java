@@ -21,14 +21,13 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import xyz.thanhhaidev.cooking.activities.auth.LauncherActivity;
 import xyz.thanhhaidev.cooking.fragments.HomeFragment;
-import xyz.thanhhaidev.cooking.fragments.Slide_listFood;
 
 public class Slide_Navigation_Main extends FragmentActivity implements View.OnClickListener {
 
     private ResideMenu resideMenu;
     private Slide_Navigation_Main mContext;
     private ResideMenuItem itemHome;
-    private ResideMenuItem listFood;
+
     private ProgressDialog progressDialog;
 
     /**
@@ -56,7 +55,7 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
         resideMenu.setBackground(R.drawable.menu_background);
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
-        //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip. 
+        //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
         resideMenu.setScaleValue(1.0f);
 
         // create menu items;
@@ -65,24 +64,7 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
         itemHome.setOnClickListener(this);
 
         resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
-//        hien thi danh sach mon an
-        listFood = new ResideMenuItem(this, R.drawable.add, "Danh sách món ăn");
 
-//        listFood.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Slide_Navigation_Main.this, Slide_listFood.class);
-//                startActivity(intent);
-//            }
-//        });
-        listFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Slide_Navigation_Main.this,Slide_listFood.class));
-            }
-        });
-
-        resideMenu.addMenuItem(listFood, ResideMenu.DIRECTION_LEFT);
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 
@@ -109,9 +91,10 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
     @Override
     public void onClick(View view) {
 
-        if (view == itemHome || view == listFood) {
+        if (view == itemHome) {
             changeFragment(new HomeFragment());
         }
+
         resideMenu.closeMenu();
     }
 
