@@ -27,6 +27,7 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
     private ResideMenu resideMenu;
     private Slide_Navigation_Main mContext;
     private ResideMenuItem itemHome;
+    private ResideMenuItem itemSearch;
 
     private ProgressDialog progressDialog;
 
@@ -60,10 +61,13 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
 
         // create menu items;
         itemHome = new ResideMenuItem(this, R.drawable.home, "Trang chủ");
+        itemSearch = new ResideMenuItem(this, R.drawable.search, "Tìm kiếm");
 
         itemHome.setOnClickListener(this);
+        itemSearch.setOnClickListener(this);
 
         resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemSearch, ResideMenu.DIRECTION_LEFT);
 
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
@@ -93,6 +97,8 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
 
         if (view == itemHome) {
             changeFragment(new HomeFragment());
+        } else if (view == itemSearch) {
+            changeFragment(new xyz.thanhhaidev.cooking.fragments.SearchFragment());
         }
 
         resideMenu.closeMenu();
