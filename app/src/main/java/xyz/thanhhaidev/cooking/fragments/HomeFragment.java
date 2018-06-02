@@ -137,7 +137,6 @@ public class HomeFragment extends Fragment {
                         try {
                             //You can also use GSON to convert it to a POJO
                             final JSONArray array = new JSONArray(jsonResponse);
-                            Log.e(TAG, array.toString());
                             getActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -199,16 +198,20 @@ public class HomeFragment extends Fragment {
         public void onBindViewHolder(FoodViewHolder holder, int position) {
             try {
                 JSONObject food = array.getJSONObject(position);
-                holder.txtFoodName.setText(food.getString("name"));
-                Picasso.get().load(food.getString("image")).into(holder.imgFood);
-
                 final String id = food.getString("id");
+                final String name = food.getString("name");
+                final String image = food.getString("image");
+
+                holder.txtFoodName.setText(name);
+                Picasso.get().load(image).into(holder.imgFood);
 
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void OnClick(View view, int position, boolean isLongClick) {
                         Intent intent = new Intent(getContext(), FoodActivity.class);
                         intent.putExtra("id", id);
+                        intent.putExtra("image", image);
+                        intent.putExtra("name", name);
                         startActivity(intent);
                     }
                 });

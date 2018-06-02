@@ -1,14 +1,6 @@
 package xyz.thanhhaidev.cooking.fragments;
 
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import xyz.thanhhaidev.cooking.R;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,18 +35,15 @@ import xyz.thanhhaidev.cooking.R;
 import xyz.thanhhaidev.cooking.activities.home.FoodActivity;
 import xyz.thanhhaidev.cooking.interfaces.ItemClickListener;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SearchFragment extends Fragment {
     ProgressDialog progressDialog;
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     FoodListAdapter foodListAdapter;
+    SearchView searchView;
 
-    android.widget.EditText edSearch;
-    android.widget.Button btnSearch;
+
     private static String TAG = "SearchFragment";
 
     public SearchFragment() {
@@ -66,21 +56,25 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
         progressDialog = new ProgressDialog(getContext());
-
-        edSearch = rootView.findViewById(R.id.edSearch);
-        btnSearch = rootView.findViewById(R.id.btnSearch);
         recyclerView = rootView.findViewById(R.id.recycler_food);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-
-        btnSearch.setOnClickListener(new View.OnClickListener() {
+        searchView = rootView.findViewById(R.id.searchView);
+        searchView.setQueryHint("Search Food");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View view) {
-                String value = edSearch.getText().toString();
-                loadListFoodSearch(value);
+            public boolean onQueryTextSubmit(String s) {
+                loadListFoodSearch(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
             }
         });
+
 
         foodListAdapter = new FoodListAdapter();
         if (Hasura.getSessionToken(getContext()) == null) {
@@ -227,16 +221,20 @@ public class SearchFragment extends Fragment {
         public void onBindViewHolder(SearchFragment.FoodViewHolder holder, int position) {
             try {
                 JSONObject food = array.getJSONObject(position);
-                holder.txtFoodName.setText(food.getString("name"));
-                Picasso.get().load(food.getString("image")).into(holder.imgFood);
-
                 final String id = food.getString("id");
+                final String name = food.getString("name");
+                final String image = food.getString("image");
+
+                holder.txtFoodName.setText(name);
+                Picasso.get().load(image).into(holder.imgFood);
 
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void OnClick(View view, int position, boolean isLongClick) {
                         Intent intent = new Intent(getContext(), FoodActivity.class);
                         intent.putExtra("id", id);
+                        intent.putExtra("image", image);
+                        intent.putExtra("name", name);
                         startActivity(intent);
                     }
                 });
