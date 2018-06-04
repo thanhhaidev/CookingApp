@@ -47,7 +47,6 @@ public class SearchFragment extends Fragment {
     private static String TAG = "SearchFragment";
 
     public SearchFragment() {
-        // Required empty public constructor
     }
 
 
