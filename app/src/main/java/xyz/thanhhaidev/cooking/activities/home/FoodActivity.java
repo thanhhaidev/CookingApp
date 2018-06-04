@@ -2,6 +2,7 @@ package xyz.thanhhaidev.cooking.activities.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,6 +39,7 @@ public class FoodActivity extends BaseActivity {
     MaterialAdapter materialAdapter;
     ImageView food_image_material;
     TextView food_name_material, txtProtein, txtCalo, txtCholesterol, txtLipid, txtPotassium, txtSodium;
+    FloatingActionButton fabFavorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class FoodActivity extends BaseActivity {
         txtProtein = findViewById(R.id.txtProtein);
         txtPotassium = findViewById(R.id.txtPotassium);
         txtSodium = findViewById(R.id.txtSodium);
+        fabFavorite = findViewById(R.id.fabFavorite);
 
         food_image_material = findViewById(R.id.food_image_material);
         food_name_material = findViewById(R.id.food_name_material);
@@ -71,6 +74,13 @@ public class FoodActivity extends BaseActivity {
         }
         loadMaterial(id);
         recyclerView.setAdapter(materialAdapter);
+
+        fabFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void loadMaterial(String id) {

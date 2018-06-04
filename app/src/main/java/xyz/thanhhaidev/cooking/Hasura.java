@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Created by jaison on 06/11/17.
+ * Created by ThanhHaiDev on 25/5/17.
  */
 
 public class Hasura {

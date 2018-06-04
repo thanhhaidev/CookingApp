@@ -31,26 +31,47 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/txtCongthuc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/food_image_material"
+            android:text="Công thức nấu ăn"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_material"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/txtCongthuc"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="70dp"
             android:background="@color/white"
             android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/txtHamLuong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recycler_material"
+            android:layout_marginTop="20dp"
+            android:text="Thành phần dinh dưỡng"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/recycler_material"
+            android:layout_below="@+id/txtHamLuong"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
             android:background="@color/white"
             android:orientation="vertical">
 
@@ -67,25 +88,11 @@
                     android:layout_marginRight="25dp"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/cholesterol" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="Cholesterol"
-                            android:textColor="#000000"
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/cholesterol" />
 
                     <TextView
                         android:id="@+id/txtCholesterol"
@@ -103,25 +110,11 @@
                     android:layout_marginRight="25dp"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/calo" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="Calo"
-                            android:textColor="#000000"
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/calo" />
 
                     <TextView
                         android:id="@+id/txtCalo"
@@ -138,25 +131,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/lipid" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="Lipid"
-                            android:textColor="#000000"
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/lipid" />
 
                     <TextView
                         android:id="@+id/txtLipid"
@@ -173,7 +152,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -183,25 +162,11 @@
                     android:layout_marginRight="25dp"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/potassium" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="potassium"
-                            android:textColor="#000000"
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/potassium" />
 
                     <TextView
                         android:id="@+id/txtPotassium"
@@ -219,25 +184,12 @@
                     android:layout_marginRight="25dp"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/protein" />
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/protein" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="protein"
-                            android:textColor="#000000"
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
 
                     <TextView
                         android:id="@+id/txtProtein"
@@ -254,25 +206,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/sodium" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="sodium"
-                            android:textColor="#000000"
-                            android:textSize="18dp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/sodium" />
 
                     <TextView
                         android:id="@+id/txtSodium"
@@ -288,14 +226,14 @@
         </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabFav"
+            android:id="@+id/fabFavorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginRight="15dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:backgroundTint="#ff0"/>
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:backgroundTint="#ff0" />
 
     </RelativeLayout>
 
