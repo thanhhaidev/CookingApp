@@ -20,6 +20,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import xyz.thanhhaidev.cooking.activities.auth.LauncherActivity;
+import xyz.thanhhaidev.cooking.fragments.FavoriteFragment;
 import xyz.thanhhaidev.cooking.fragments.HomeFragment;
 
 public class Slide_Navigation_Main extends FragmentActivity implements View.OnClickListener {
@@ -28,6 +29,7 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
     private Slide_Navigation_Main mContext;
     private ResideMenuItem itemHome;
     private ResideMenuItem itemSearch;
+    private ResideMenuItem itemFavorite;
 
     private ProgressDialog progressDialog;
 
@@ -60,14 +62,17 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
         resideMenu.setScaleValue(1.0f);
 
         // create menu items;
-        itemHome = new ResideMenuItem(this, R.drawable.home, "Trang chủ");
-        itemSearch = new ResideMenuItem(this, R.drawable.search, "Tìm kiếm");
+        itemHome = new ResideMenuItem(this, R.drawable.home, "Home");
+        itemSearch = new ResideMenuItem(this, R.drawable.search, "Search");
+        itemFavorite = new ResideMenuItem(this, R.drawable.heart, "Favorites");
 
         itemHome.setOnClickListener(this);
         itemSearch.setOnClickListener(this);
+        itemFavorite.setOnClickListener(this);
 
         resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemSearch, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemFavorite, ResideMenu.DIRECTION_LEFT);
 
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
@@ -99,6 +104,8 @@ public class Slide_Navigation_Main extends FragmentActivity implements View.OnCl
             changeFragment(new HomeFragment());
         } else if (view == itemSearch) {
             changeFragment(new xyz.thanhhaidev.cooking.fragments.SearchFragment());
+        } else if (view == itemFavorite) {
+            changeFragment(new FavoriteFragment());
         }
 
         resideMenu.closeMenu();
