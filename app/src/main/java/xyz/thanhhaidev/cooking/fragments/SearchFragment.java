@@ -128,7 +128,7 @@ public class SearchFragment extends Fragment {
                             )
                             .put("where", new JSONObject()
                                     .put("name", new JSONObject()
-                                            .put("$ilike", "%"+value+"%")
+                                            .put("$ilike", "%" + value + "%")
                                     )
                             )
                     );
@@ -158,7 +158,6 @@ public class SearchFragment extends Fragment {
                         try {
                             //You can also use GSON to convert it to a POJO
                             final JSONArray array = new JSONArray(jsonResponse);
-                            Log.e(TAG, array.toString());
                             getActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {

@@ -20,6 +20,7 @@ public class Hasura {
 
     private static final String PREF_NAME = "SharedPrefName";
     private static final String AUTHTOKEN_KEY = "AuthToken";
+    private static final String USERID_KEY = "UserID";
 
     public static void saveSessionToken(String authToken, Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -31,5 +32,17 @@ public class Hasura {
     public static String getSessionToken(Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         return sharedPref.getString(AUTHTOKEN_KEY, null);
+    }
+
+    public static void saveSessionID(int id, Context context) {
+        SharedPreferences sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt(USERID_KEY, id);
+        editor.apply();
+    }
+
+    public static int getSessionID(Context context) {
+        SharedPreferences sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPref.getInt(USERID_KEY, -1);
     }
 }

@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 /**
- * Created by jaison on 06/11/17.
+ * Created by ThanhHaiDev on 30/5/18.
  */
 
 public class BaseActivity extends AppCompatActivity {

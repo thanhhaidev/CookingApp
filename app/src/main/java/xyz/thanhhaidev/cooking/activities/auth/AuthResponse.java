@@ -3,7 +3,7 @@ package xyz.thanhhaidev.cooking.activities.auth;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by jaison on 06/11/17.
+ * Created by ThanhHaiDev on 30/05/18.
  */
 
 public class AuthResponse {

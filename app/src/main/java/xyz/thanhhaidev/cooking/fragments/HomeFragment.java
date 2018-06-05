@@ -110,6 +110,12 @@ public class HomeFragment extends Fragment {
                             .put("columns", new JSONArray()
                                     .put("*")
                             )
+                            .put("order_by", new JSONArray()
+                                    .put(new JSONObject()
+                                            .put("column", "id")
+                                            .put("order", "asc")
+                                    )
+                            )
                     );
 
             RequestBody body = RequestBody.create(mediaType, jsonObject.toString());

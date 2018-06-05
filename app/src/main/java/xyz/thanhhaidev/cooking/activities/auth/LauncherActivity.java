@@ -153,6 +153,7 @@ public class LauncherActivity extends AppCompatActivity {
                         AuthResponse authResponse = new Gson().fromJson(jsonString, AuthResponse.class);
                         //Save the response offline to be used later
                         Hasura.saveSessionToken(authResponse.authToken, LauncherActivity.this);
+                        Hasura.saveSessionID(authResponse.hasuraId, LauncherActivity.this);
                         showToast("Authenticated successfully!");
                         refreshLayout();
                     } else {
